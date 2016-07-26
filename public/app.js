@@ -2,7 +2,9 @@
 function something()
 	{
 		var x = window.localStorage.getItem('abc');
-		window.localStorage.setItem('abc', 555)
+		//x = parseInt(x);
+		x = x *1 + 1;
+		window.localStorage.setItem('abc', x)
 
 		alert(x);		
 	}
