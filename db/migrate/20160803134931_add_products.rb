@@ -13,17 +13,17 @@ class AddProducts < ActiveRecord::Migration
   	:description => 'Nice Pepperoni pizza',
   	:price => 450,
   	:size => 30,
-  	:is_spicy => false,
+  	:is_spicy => true,
   	:is_veg => false,
-  	:is_best_offer => true,
+  	:is_best_offer => false,
   	:path_to_image => '/images/pepperoni.jpg'
 
   	Product.create :title => 'Veg', 
-  	:description => 'This is Veg pizza',
+  	:description => 'Amazing Vegetarian pizza',
   	:price => 400,
-  	:size => 28,
+  	:size => 30,
   	:is_spicy => false,
-  	:is_veg => false,
+  	:is_veg => true,
   	:is_best_offer => true,
   	:path_to_image => '/images/veg.jpg'
 
