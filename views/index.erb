@@ -1,9 +1,29 @@
 <h2>Wellcome to Pizza Shop!</h2>
 
-<% @products.each do |p| %>
-<p>
-<%= p.description %>
-</p>
-<% end %>
+<div class="container">  
+	<div class="row">		
+		<% @products.each do |p| %>
+			<% if p.id.odd? %>
+				<div class="col-md-4" style="background-color: rgb(200,250,210)">	
+			<% else %>
+				<div class="col-md-4" style="background-color: rgb(255,222,200)">
+			<% end %>
+				<p class="text-center"><%= p.title %></p>	
+				<img src="<%= p.path_to_image %>" alt="<%= p.description%>" class="img-thumbnail center-block">
+				<br>
+				<div class="row center-block">
+					<div class="col-md-6">						
+						<p class="text-center">size: <%= p.size %></p>
+					</div>
+					<div class="col-md-6">						
+						<p class="text-center">price: <%= p.price %></p>
+					</div>
+				</div>      			
+
+			</div>
+		<% end %>
+	</div>
+</div>
+<br>
 
 <button class="btn btn-primary" onclick="something()">Click me!</button>
