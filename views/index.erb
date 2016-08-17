@@ -4,22 +4,33 @@
 	<div class="row">		
 		<% @products.each do |p| %>
 			<% if p.id.odd? %>
-				<div class="col-md-4" style="background-color: rgb(200,250,210)">	
+				<div class="col-md-4 bg-success">	
 			<% else %>
-				<div class="col-md-4" style="background-color: rgb(255,222,200)">
+				<div class="col-md-4 bg-warning">
 			<% end %>
-				<p class="text-center"><%= p.title %></p>	
-				<img src="<%= p.path_to_image %>" alt="<%= p.description%>" class="img-thumbnail center-block">
-				<br>
-				<div class="row center-block">
-					<div class="col-md-6">						
-						<p class="text-center">size: <%= p.size %></p>
+				<h4 class="text-center"><%= p.title %></h4>
+				<div class="row">
+					<div class="col-md-6">	
+						<ul>
+  							<li>size: <%= p.size %> cm</li>
+  							<li>price: <%= p.price %> rub</li>
+  							<% if p.is_spicy %>
+								<li><strong>spicy!</strong></li>	
+							<% end %>
+							<% if p.is_veg %>
+								<li><strong>veg!</strong></li>	
+							<% end %>
+						</ul>											
 					</div>
-					<div class="col-md-6">						
-						<p class="text-center">price: <%= p.price %></p>
-					</div>
-				</div>      			
-
+					<div class="col-md-6">				
+					<img src="<%= p.path_to_image %>" alt="<%= p.description%>" class="img-thumbnail center-block">				
+					</div>					
+				</div>     
+				<p><%= p.description %>
+				<% if p.is_best_offer %>
+					<i> (Best offer)</i>							
+				<% end %>			
+				</p>
 			</div>
 		<% end %>
 	</div>
