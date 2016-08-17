@@ -20,10 +20,13 @@
 							<% if p.is_veg %>
 								<li><strong>veg!</strong></li>	
 							<% end %>
-						</ul>											
+						</ul>	
+						<button class="btn btn-default btn-sm btn-block" onclick="something()">Add to order</button>				
 					</div>
-					<div class="col-md-6">				
+					<div class="col-md-6">	
+					<br>
 					<img src="<%= p.path_to_image %>" alt="<%= p.description%>" class="img-thumbnail center-block">				
+					<br>
 					</div>					
 				</div>     
 				<p><%= p.description %>
