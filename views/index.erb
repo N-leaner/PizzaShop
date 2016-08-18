@@ -23,7 +23,10 @@
 						</ul>	
 						<div>
 						<button class="btn btn-success btn-sm btn-block" onclick="add_to_cart(<%= p.id %>)">Add to order</button>		
-						</div>		
+						</div>	
+						<div>
+							<p class="text-center">total: <strong id="countb_<%= p.id %>">0</strong></p>
+						</div>
 					</div>
 					<div class="col-md-6">	
 					<br>
@@ -39,7 +42,23 @@
 			</div>
 		<% end %>
 	</div>
+	<div class="row">	
+		<div class="col-md-3 bg-primary">
+			<p class="text-center"><strong>You order:</strong></p>
+			<% @products.each do |p| %>
+				<p><%= p.title %>: <strong id="countb2_<%= p.id %>">0</strong></p>
+				<hr>
+			<% end %>
+			<button class="btn btn-warning" onclick="clearorder()">Clear order</button>
+			<div class="text-right">
+				<strong>Total: </strong><strong id="countt"></strong>
+			</div>
+		</div>
+	</div>
 </div>
 <br>
 
-<button class="btn btn-primary" onclick="something()">Click me!</button>
+<script type="text/javascript">
+	total_in_cart()
+</script>
+
