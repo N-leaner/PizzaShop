@@ -15,15 +15,22 @@
   							<li>size: <%= p.size %> cm</li>
   							<li>price: <%= p.price %> rub</li>
   							<% if p.is_spicy %>
-								<li><strong>spicy!</strong></li>	
+								<li><strong>spicy!</strong></li>		
 							<% end %>
 							<% if p.is_veg %>
 								<li><strong>veg!</strong></li>	
 							<% end %>
 						</ul>	
-						<div>
-						<button class="btn btn-success btn-sm btn-block" onclick="add_to_cart(<%= p.id %>)">Add to order</button>		
-						</div>	
+
+						<div class="row">
+							<div class="col-md-6">
+							<button class="btn btn-success btn-sm btn-block" onclick="add_to_cart(<%= p.id %>)">+</button>
+							</div>							
+							<div class="col-md-6">
+							<button class="btn btn-success btn-sm btn-block" onclick="rem_from_cart(<%= p.id %>)">-</button>
+							</div>
+						</div>												
+						<br>
 						<div>
 							<p class="text-center">total: <strong id="countb_<%= p.id %>">0</strong></p>
 						</div>
