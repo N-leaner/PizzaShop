@@ -57,3 +57,20 @@ function clearorder()
 		window.localStorage.clear();		
 		location.reload();
 	}
+
+function get_orders()	
+	{	
+		var orders = '';
+
+		for (var i = 0; i < window.localStorage.length; i++) {
+			key = window.localStorage.key(i);
+			if (key.search("product")>=0) {						
+				value = window.localStorage[key];
+				orders = orders + key + '='+value+',';							
+			}		
+		}
+		if (orders.length>0) {
+			orders = orders.substring(0,orders.length-1);
+		}
+		return orders;		
+	}	
