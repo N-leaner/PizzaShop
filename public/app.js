@@ -50,6 +50,8 @@ function total_in_cart()
 
 		}
 		document.getElementById("countt").innerHTML = total_c;
+		ord_str = get_orders();
+		$('#order_str').val(ord_str)
 	}
 
 function clearorder()	
