@@ -43,3 +43,7 @@ post '/cart' do
 	@order_bname = 'Check out order ( '+it_summ.to_s+' )'
 	erb :cart
 end	
+
+post '/order'do
+	erb :order
+end
