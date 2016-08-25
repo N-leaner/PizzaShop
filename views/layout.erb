@@ -47,8 +47,8 @@
 				<ul class="nav navbar-nav navbar-right">
 		        	<li>
 		        		<form action="/cart" method="post">
-		        			<input id="order_str" type="hidden" name="orders">
-		        			<input id="order_button" type="submit" class="btn btn-primary btn-lg" value="Check out order (..)">	
+		        			<input id="order_str" type="hidden" name="orders" value="<%= @order_inp%>">
+		        			<input id="order_button" type="submit" class="btn btn-primary btn-lg" value="<%= @order_bname %>">	
 		        		</form>
 		        	</li>		        	
 		      	</ul>

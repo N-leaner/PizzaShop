@@ -1,0 +1,33 @@
+<h2>Please,check out your order: </h2>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Price</th>
+			<th>Qty.</th>
+			<th>Summa</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% itSumma = 0 %>
+		<% @hh_order.each do |key,value| %>
+		<% product_ = Product.find(key) %>
+		<% price = product_['price'] %>
+		<% summa = value * price %>
+		<% itSumma = itSumma + summa %>
+		<tr>
+			<td><%= product_['title'] %></td>
+			<td><%= price %></td>
+			<td><%= value %></td>
+			<td><%= summa %></td>
+		</tr>
+
+		<% end %>	
+
+		<tr>
+			<td></td><td></td><td></td>
+			<td><strong><%= itSumma %></strong></td>
+		</tr>				
+	</tbody>
+</table>

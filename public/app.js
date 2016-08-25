@@ -52,11 +52,11 @@ function total_in_cart()
 		document.getElementById("countt").innerHTML = total_c;
 		ord_str = get_orders();
 		$('#order_str').val(ord_str)
-		if (total_c > 0)
-		{	
+		//if (total_c > 0)
+		//{	
 			btext = 'Check out order ( '+ total_c +' )'
 			$('#order_button').val(btext)
-		}
+		//}
 		
 
 	}
