@@ -21,7 +21,7 @@ get '/about' do
 	erb :about
 end	
 
-get '/cart' do
+get '/cart' do	
 	erb :cart
 end	
 
@@ -45,5 +45,10 @@ post '/cart' do
 end	
 
 post '/order'do
+	@order_bname = 'Check out order ( .. )'
+	#@order_inp = 2
+	@order_inp = params[:order_conf].strip
+	#@hh_order = get_hh_order @order_inp
+
 	erb :order
 end

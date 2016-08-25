@@ -40,6 +40,7 @@
 			</div>
 			<div class="col-md-2">
 				<form action="/order" method="post">
+					<input type="hidden" name="order_conf" value="<%= @order_inp%>">					
 					<input id="next_button" type="submit" class="btn btn-success btn-block" value="Next">	
 				</form>
 			</div>
