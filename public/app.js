@@ -50,13 +50,12 @@ function total_in_cart()
 
 		}
 		document.getElementById("countt").innerHTML = total_c;
+
 		ord_str = get_orders();
 		$('#order_str').val(ord_str)
-		//if (total_c > 0)
-		//{	
-			btext = 'Check out order ( '+ total_c +' )'
-			$('#order_button').val(btext)
-		//}
+
+		btext = 'Check out order ( '+ total_c +' )'
+		$('#order_button').val(btext)		
 		
 
 	}
@@ -83,3 +82,15 @@ function get_orders()
 		}
 		return orders;		
 	}	
+
+function hidden_button()
+	{
+		var inp_h = document.getElementById('buttn_h');
+		var btn = document.getElementById('order_button');
+            if (inp_h.val = 0) {
+                btn.style.display='block';
+            } else {
+                btn.style.display='none';
+            }
+
+	}

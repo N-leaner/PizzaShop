@@ -1,3 +1,66 @@
 <h2>Confirm your order:</h2>
 
-<%= @order_inp %>
+<form action="/order_done" method="POST">
+
+<div class="row">
+  <div class="col-md-6">
+  <h3>Your requisites:</h3>
+    <div class="form-group">
+      <label>Name</label>
+      <input value="<%=@user_name%>" name="username" type="text" class="form-control" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input value="<%=@user_phone%>" name="user_telephone" type="tel" class="form-control" placeholder="Enter your phone number">
+    </div>
+    <div class="form-group">
+      <label>Adress</label>
+      <input value="<%=@user_adress%>" name="adress" type="text" class="form-control" placeholder="Enter your adress">
+    </div>
+  </div>
+
+   <div class="col-md-6">
+   	<h3>Your order:</h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Price</th>
+					<th>Qty.</th>
+					<th>Summa</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% itSumma = 0 %>
+				<% @hh_order.each do |key,value| %>
+				<% product_ = Product.find(key) %>
+				<% price = product_['price'] %>
+				<% summa = value * price %>
+				<% itSumma = itSumma + summa %>
+				<tr>
+					<td><%= product_['title'] %></td>
+					<td><%= price %></td>
+					<td><%= value %></td>
+					<td><%= summa %></td>
+				</tr>
+
+				<% end %>	
+
+				<tr>
+					<td></td><td></td><td></td>
+					<td><strong><%= itSumma %></strong></td>
+				</tr>				
+			</tbody>
+		</table>
+  </div>
+</div>
+
+  <button type="submit" class="btn btn-primary">Confirm</button>
+
+</form>
+
+<script type="text/javascript">
+	$(function() {
+		hidden_button();		
+	})	
+</script>

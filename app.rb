@@ -10,8 +10,15 @@ class Product < ActiveRecord::Base
 
 end	
 
+class Order < ActiveRecord::Base
+	validates :name, presence: true, length: {minimum: 3}
+	validates :phone, presence: true
+	validates :adress, presence: true	
+end	
+
 get '/' do
 	@products = Product.all
+	@ore = 0
 	@order_inp = ''
 	@order_bname = 'Check out order (..)'
 	erb :index
@@ -37,6 +44,7 @@ end
 
 post '/cart' do	
 	@order_inp = params[:orders].strip
+	@ore = 0
 	it_summ = 0
 	@hh_order = get_hh_order @order_inp
 	@hh_order.each {|k,v| it_summ = it_summ + v}
@@ -44,11 +52,10 @@ post '/cart' do
 	erb :cart
 end	
 
-post '/order'do
-	@order_bname = 'Check out order ( .. )'
-	#@order_inp = 2
+post '/order'do	
+	@ore = 1
 	@order_inp = params[:order_conf].strip
-	#@hh_order = get_hh_order @order_inp
+	@hh_order = get_hh_order @order_inp
 
 	erb :order
 end
