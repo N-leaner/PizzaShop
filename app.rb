@@ -42,13 +42,26 @@ def get_hh_order str
 	return hh
 end
 
+def get_order_qvo hh
+	it_qvo = 0	
+	hh.each {|k,v| it_qvo = it_qvo + v}
+	return it_qvo.to_s
+end	
+
+def get_order_summ hh
+	it_summ = 0
+	hh.each do |k,v|
+		price = Product.find(k)['price']
+		it_summ = it_summ + price*v
+	end	
+	return it_summ
+end	
+
 post '/cart' do	
 	@order_inp = params[:orders].strip
-	@ore = 0
-	it_summ = 0
-	@hh_order = get_hh_order @order_inp
-	@hh_order.each {|k,v| it_summ = it_summ + v}
-	@order_bname = 'Check out order ( '+it_summ.to_s+' )'
+	@ore = 0	
+	@hh_order = get_hh_order @order_inp	
+	@order_bname = 'Check out order ( '+get_order_qvo(@hh_order)+' )'
 	erb :cart
 end	
 
@@ -59,3 +72,35 @@ post '/order'do
 
 	erb :order
 end
+
+post '/order_done' do
+	@order_inp = params[:order_conf].strip
+	@hh_order = get_hh_order @order_inp
+
+	@name_ = params[:username].strip
+	@phone_ = params[:phone].strip
+	@adress_ = params[:adress].strip
+
+	@order_to_w = Order.new
+	@order_to_w.name = @name_
+	@order_to_w.phone = @phone_
+	@order_to_w.adress = @adress_
+	@order_to_w.descript_order = @order_inp
+	@order_to_w.summa = get_order_summ @hh_order
+
+	if @order_to_w.save
+		@done = 'Thanks, your order is confirmed!'	
+		@ore = 1
+		erb :order_good
+	else
+		#@error = 'Ошибка записи - одно из полей не заполнено'
+		@error = @order_to_w.errors.full_messages.first
+		erb :order
+	end	
+end	
+
+get '/order_done' do
+	order_inp = params[:order_conf].strip
+	@hh_order = get_hh_order order_inp
+	erb :order
+end	

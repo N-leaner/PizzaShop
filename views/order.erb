@@ -2,20 +2,22 @@
 
 <form action="/order_done" method="POST">
 
+<input type="hidden" name="order_conf" value="<%= @order_inp%>">
+
 <div class="row">
   <div class="col-md-6">
   <h3>Your requisites:</h3>
     <div class="form-group">
       <label>Name</label>
-      <input value="<%=@user_name%>" name="username" type="text" class="form-control" placeholder="Enter your name">
+      <input value="<%=@name_%>" name="username" type="text" class="form-control" placeholder="Enter your name">
     </div>
     <div class="form-group">
       <label>Phone</label>
-      <input value="<%=@user_phone%>" name="user_telephone" type="tel" class="form-control" placeholder="Enter your phone number">
+      <input value="<%=@phone_%>" name="phone" type="tel" class="form-control" placeholder="Enter your phone number">
     </div>
     <div class="form-group">
       <label>Adress</label>
-      <input value="<%=@user_adress%>" name="adress" type="text" class="form-control" placeholder="Enter your adress">
+      <input value="<%=@adress_%>" name="adress" type="text" class="form-control" placeholder="Enter your adress">
     </div>
   </div>
 

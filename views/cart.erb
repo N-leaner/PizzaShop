@@ -1,3 +1,4 @@
+<% if @hh_order.size > 0 %>
 <h2>Please,check in your order: </h2>
 
 <table class="table table-striped">
@@ -50,3 +51,7 @@
 		<hr>
 	</div>
 </div>
+<% else %>
+<h2 class="text-center">You order is empty</h2>
+<% end %>
+

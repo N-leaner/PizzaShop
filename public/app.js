@@ -62,9 +62,16 @@ function total_in_cart()
 
 function clearorder()	
 	{
-		window.localStorage.clear();		
+		window.localStorage.clear();				
 		location.reload();
 	}
+
+function clearorder_only()	
+	{
+		window.localStorage.clear();				
+		setTimeout(function() { window.location.href = "/" }, 1000);
+		
+	}	
 
 function get_orders()	
 	{	
