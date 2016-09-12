@@ -54,7 +54,7 @@ function total_in_cart()
 		ord_str = get_orders();
 		$('#order_str').val(ord_str)
 
-		btext = 'Check out order ( '+ total_c +' )'
+		btext = 'Your cart ( '+ total_c +' )'
 		$('#order_button').val(btext)		
 		
 

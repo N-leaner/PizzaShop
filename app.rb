@@ -20,7 +20,7 @@ get '/' do
 	@products = Product.all
 	@ore = 0
 	@order_inp = ''
-	@order_bname = 'Check out order (..)'
+	@order_bname = 'Your cart (..)'
 	erb :index
 end
 
@@ -61,7 +61,7 @@ post '/cart' do
 	@order_inp = params[:orders].strip
 	@ore = 0	
 	@hh_order = get_hh_order @order_inp	
-	@order_bname = 'Check out order ( '+get_order_qvo(@hh_order)+' )'
+	@order_bname = 'Your cart ( '+get_order_qvo(@hh_order)+' )'
 	erb :cart
 end	
 
