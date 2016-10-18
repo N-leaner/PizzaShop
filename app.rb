@@ -33,6 +33,11 @@ get '/cart' do
 	#erb :cart
 end	
 
+get '/all_orders' do
+	@orders = Order.all
+	erb :all_orders
+end	
+
 def get_hh_order str
 	arr = str.split(',')
 	hh = {}

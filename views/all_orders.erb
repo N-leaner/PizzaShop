@@ -1,0 +1,36 @@
+<h2>All our orders: </h2>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Adress</th>
+			<th>Summa</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% itSumma = 0 %>		
+		<% @orders.each do |order| %>
+		<% itSumma += order.summa %>		
+		<tr>
+			<td><%= order.name %></td>
+			<td><%= order.phone %></td>
+			<td><%= order.adress %></td>
+			<td><%= order.summa %></td>
+		</tr>
+
+		<% end %>	
+
+		<tr>
+			<td></td><td></td><td></td>						
+			<td><strong><%= itSumma %></strong></td>
+		</tr>				
+	</tbody>
+</table>
+
+<script type="text/javascript">
+	$(function() {
+		hidden_button();		
+	})	
+</script>
