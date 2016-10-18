@@ -101,3 +101,8 @@ function hidden_button()
             }
 
 	}
+
+function prev_page()
+	{
+		history.go(-1)
+	}
