@@ -12,8 +12,9 @@
 	</thead>
 	<tbody>
 		<% itSumma = 0 %>
-		<% @hh_order.each do |key,value| %>
-		<% product_ = Product.find(key) %>
+		<% @hh_order.each do |key,val| %>
+		<% product_ = val[0] %>
+		<% value = val[1] %>				
 		<% price = product_['price'] %>
 		<% summa = value * price %>
 		<% itSumma = itSumma + summa %>

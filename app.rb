@@ -29,7 +29,8 @@ get '/about' do
 end	
 
 get '/cart' do	
-	erb :cart
+	redirect to '/'	
+	#erb :cart
 end	
 
 def get_hh_order str
@@ -37,22 +38,25 @@ def get_hh_order str
 	hh = {}
 	arr.each do |i|
 		arh = i.split('=')
-		hh[arh[0].split('_')[1]] = arh[1].to_i	
+		key = arh[0].split('_')[1]
+		cnt = arh[1].to_i
+		prod = Product.find(key)
+		hh[key] = [prod,cnt]	
 	end	
 	return hh
 end
 
 def get_order_qvo hh
 	it_qvo = 0	
-	hh.each {|k,v| it_qvo = it_qvo + v}
+	hh.each {|k,v| it_qvo = it_qvo + v[1]}
 	return it_qvo.to_s
 end	
 
 def get_order_summ hh
 	it_summ = 0
 	hh.each do |k,v|
-		price = Product.find(k)['price']
-		it_summ = it_summ + price*v
+		price = v[0]['price']
+		it_summ = it_summ + price*v[1]
 	end	
 	return it_summ
 end	
@@ -60,7 +64,7 @@ end
 post '/cart' do	
 	@order_inp = params[:orders].strip
 	@ore = 0	
-	@hh_order = get_hh_order @order_inp	
+	@hh_order = get_hh_order @order_inp		
 	@order_bname = 'Your cart ( '+get_order_qvo(@hh_order)+' )'
 	erb :cart
 end	
