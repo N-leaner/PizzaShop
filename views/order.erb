@@ -35,12 +35,14 @@
 			</thead>
 			<tbody>
 				<% itSumma = 0 %>
+				<% itQnt = 0 %>
 				<% @hh_order.each do |key,val| %>
 				<% product_ = val[0] %>
 				<% value = val[1] %>
 				<% price = product_['price'] %>
 				<% summa = value * price %>
-				<% itSumma = itSumma + summa %>
+				<% itSumma += summa %>
+				<% itQnt += value %>
 				<tr>
 					<td><%= product_['title'] %></td>
 					<td><%= price %></td>
@@ -51,7 +53,8 @@
 				<% end %>	
 
 				<tr>
-					<td></td><td></td><td></td>
+					<td></td><td></td>
+					<td><strong><%= itQnt %></strong></td>
 					<td><strong><%= itSumma %></strong></td>
 				</tr>				
 			</tbody>
