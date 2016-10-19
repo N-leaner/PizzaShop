@@ -33,6 +33,10 @@ get '/cart' do
 	#erb :cart
 end	
 
+get '/order' do	
+	redirect to '/'
+end	
+
 get '/all_orders' do
 	@orders = Order.all
 	erb :all_orders
