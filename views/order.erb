@@ -18,8 +18,7 @@
     <div class="form-group">
       <label>Adress</label>
       <input value="<%=@adress_%>" name="adress" type="text" class="form-control" placeholder="Enter your adress">
-    </div>
-    <button type="submit" class="btn btn-success">Confirm</button>
+    </div>    
   </div>
 
    <div class="col-md-6">
@@ -59,10 +58,22 @@
 				</tr>				
 			</tbody>
 		</table>
-		<br>		
-		<button class="btn btn-primary" onclick="prev_page()"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> Back</button>
+		
   </div>
 </div>  
+
+<div class="row">
+  <div class="col-md-3">
+  	<button type="submit" class="btn btn-success">Confirm order</button>
+  </div>
+  <div class="col-md-3">
+  	<button class="btn btn-danger" onclick="clearorder();return false"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel order</button>
+  </div>
+  <div class="col-md-6">	
+		<button class="btn btn-primary" onclick="prev_page()"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> Back</button>
+  </div>
+</div>
+
 </form>
 
 <script type="text/javascript">
