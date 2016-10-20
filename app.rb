@@ -3,8 +3,8 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
-require './db/classes.rb'
-require './helpers.rb'
+require './db/classes'
+require './helpers'
 
 set :database, "sqlite3:pizzashop.db"
 
